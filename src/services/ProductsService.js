@@ -22,8 +22,16 @@ const BASE_URL = 'https://fakestoreapi.com'
     return get('/products')
 }
 
+/**
+ * Get one product
+ */
+ const getProduct = (id) => {
+    return get(`/products/${id}`)
+}
+
 
 export default {
-	getProducts
+	getProducts,
+    getProduct
 }
 
