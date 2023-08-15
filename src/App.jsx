@@ -1,12 +1,21 @@
+import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import ProductsPage from './pages/ProductsPage'
+import ProductPage from './pages/ProductPage'
+import NotFound from './pages/NotFound'
+
 function App() {
 
     return (
-        <>
-            <h1>Webshop base</h1>
-            <p>
-                This is a base for a webshop
-            </p>
-        </>
+        <div>
+            <Routes>
+				<Route path="/" element={<HomePage />} />
+                <Route path="/products" element={<ProductsPage />} />
+				<Route path="/products/:id" element={<ProductPage />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </div>
     )
 }
 
