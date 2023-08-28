@@ -43,12 +43,22 @@ const NavBar = () => {
                         >
                             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                                 <li className="text-gray-600 hover:text-green-400">
-                                    <NavLink to="/">
+                                    <NavLink 
+                                        to="/"
+                                        className={({ isActive }) =>
+                                            isActive ? "font-medium" : ""
+                                        }
+                                    >
                                         Home
                                     </NavLink>
                                 </li>
                                 <li className="text-gray-600 hover:text-green-400">
-                                    <NavLink to="/products">
+                                    <NavLink 
+                                        to="/products"
+                                        className={({ isActive }) =>
+                                            isActive ? "font-medium" : ""
+                                        }
+                                    >
                                         Products
                                     </NavLink>
                                 </li>
