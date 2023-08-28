@@ -1,13 +1,13 @@
 /** Hooks **/
 import useGetProduct from '../hooks/useGetProduct'
+import { useParams } from 'react-router-dom'
 
 const ProductPage = () => {
 
-    //test id
-    const id = 1
+    //Get id from url
+    const {id} = useParams()
     
     {/* Use useGetProduct hook and return these specific values from useQuery */}
-    
     const { data: product } = useGetProduct(id)
     return (
         <div>
