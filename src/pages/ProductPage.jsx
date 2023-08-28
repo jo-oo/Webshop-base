@@ -23,7 +23,7 @@ const ProductPage = () => {
             {isSuccess && product &&
                 <p>{product.title}</p>
             }
-            {!product &&
+            {!isLoading && !product &&
                 <p>No such product existing</p>
             }
         </div>

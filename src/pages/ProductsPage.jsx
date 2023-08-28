@@ -23,7 +23,7 @@ const ProductsPage = () => {
                     })} 
                 </>
             }
-            {!products &&
+            {!isLoading && !products &&
                 <p>There are no products</p>
             }
         </div>
