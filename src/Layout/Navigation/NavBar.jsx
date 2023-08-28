@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 /** Icons **/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,9 +15,10 @@ const NavBar = () => {
                 <div className="justify-between px-4 mx-auto xl:max-w-screen-xl md:items-center md:flex md:px-8">
                     <div>
                         <div className="flex items-center justify-between py-5 md:block">
-                            <a href="">
+                            <NavLink to="/">
                                 <h2 className="text-2xl font-bold">LOGO</h2>
-                            </a>
+                            </NavLink>
+       
                             {/* shows dropdown menu in screens smaller than medium*/}
                             <div className="md:hidden">
                                 {/* toggeling dropdown icon and close icon */}
@@ -41,10 +43,14 @@ const NavBar = () => {
                         >
                             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                                 <li className="text-gray-600 hover:text-green-400">
-                                    <a href="">Home</a>
+                                    <NavLink to="/">
+                                        Home
+                                    </NavLink>
                                 </li>
                                 <li className="text-gray-600 hover:text-green-400">
-                                    <a href="">Products</a>
+                                    <NavLink to="/products">
+                                        Products
+                                    </NavLink>
                                 </li>
                             </ul>
                         </div>
