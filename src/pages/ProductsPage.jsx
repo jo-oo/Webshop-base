@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 /** Hooks **/
 import useGetProducts from '../hooks/useGetProducts'
 
@@ -16,9 +18,13 @@ const ProductsPage = () => {
             {/* Render products when fetching isSucess and product is loaded */}
             {isSuccess && products &&
                 <>
-                    {products.map((product, i) => {
-                        return (    
-                            <p key={i}>{product.title}</p>    
+                    {products.map((product) => {
+                        return (   
+                            <div key={product.id}>
+                                <Link to={`/products/${product.id}`}>
+                                    <p>{product.title} {product.id} </p>
+                                </Link> 
+                            </div>    
                         )            
                     })} 
                 </>
