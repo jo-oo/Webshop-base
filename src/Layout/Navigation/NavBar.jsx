@@ -1,4 +1,12 @@
+import { useState } from 'react'
+
+/** Icons **/
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons"
+
 const NavBar = () => {
+    //state for toggeling dropdown
+    const [dropDown, setDropDown] = useState(false);
 
     return (
         <div className="sticky top-0 left-0 right-0">
@@ -10,9 +18,18 @@ const NavBar = () => {
                             <h2 className="text-2xl font-bold">LOGO</h2>
                         </a>
                         <div className="md:hidden">
-                            <p>Ikon</p>
+                        <button
+                                className="text-gray-600"
+                                onClick={() => setDropDown(!dropDown)}
+                            >
+                                {!dropDown ? (
+                                     <FontAwesomeIcon icon={faBars} className="text-[1.4rem]"/>
+                                ) : (
+                                    <FontAwesomeIcon icon={faX} className="text-[1.35rem]"  />
+                                )}
+                            </button>
                         </div>
-                    </div>
+                    </div>  
                 </div>
                 <div>
                     <div>
