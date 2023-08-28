@@ -1,6 +1,6 @@
 /** Hooks **/
-import useGetProduct from '../hooks/useGetProduct'
 import { useParams } from 'react-router-dom'
+import useGetProduct from '../hooks/useGetProduct'
 
 const ProductPage = () => {
 
@@ -8,12 +8,23 @@ const ProductPage = () => {
     const {id} = useParams()
     
     {/* Use useGetProduct hook and return these specific values from useQuery */}
-    const { data: product } = useGetProduct(id)
+    const { data: product, error, isError, isLoading, isSuccess } = useGetProduct(id)
+
     return (
         <div>
+            {/* If loading, show message on screen for user waiting*/}
+            {isLoading && <p>Loading data...</p>}
+
+            {/* If error, show message on screen for user*/}
+            {isError && (<p>Error! {error.message}</p>)}
+         
+            {/* Render product when fetching isSucess and product is loaded */}
             <h1>Product Page</h1>
-            {product && 
+            {isSuccess && product &&
                 <p>{product.title}</p>
+            }
+            {!product &&
+                <p>No such product existing</p>
             }
         </div>
     )

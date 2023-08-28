@@ -3,10 +3,18 @@ import useGetProducts from '../hooks/useGetProducts'
 
 const ProductsPage = () => {
     {/* Use useGetProducts hook and return these specific values from useQuery */}
-    const { data: products } = useGetProducts()
+    const { data: products, error, isError, isLoading, isSuccess  } = useGetProducts()
+
     return (
         <div>
-            {products &&
+            {/* If loading, show message on screen for user waiting*/}
+            {isLoading && <p>Loading data...</p>}
+
+            {/* If error, show message on screen for user*/}
+            {isError && (<p>Error! {error.message}</p>)}
+
+            {/* Render products when fetching isSucess and product is loaded */}
+            {isSuccess && products &&
                 <>
                     {products.map((product, i) => {
                         return (    
@@ -14,6 +22,9 @@ const ProductsPage = () => {
                         )            
                     })} 
                 </>
+            }
+            {!products &&
+                <p>There are no products</p>
             }
         </div>
     )
