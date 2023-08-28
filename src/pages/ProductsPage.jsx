@@ -18,15 +18,29 @@ const ProductsPage = () => {
             {/* Render products when fetching isSucess and product is loaded */}
             {isSuccess && products &&
                 <>
-                    {products.map((product) => {
-                        return (   
-                            <div key={product.id}>
-                                <Link to={`/products/${product.id}`}>
-                                    <p>{product.title} {product.id} </p>
-                                </Link> 
-                            </div>    
-                        )            
-                    })} 
+                    {/*Product Card List Section/Container*/}
+                    <section className="bg-pink-100 py-10 px-12">
+
+                        {/*Grid */}
+                      <div className="container m-auto grid gap-8 text-neutral-600 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                       
+                            {products.map((product) => {
+                                return (   
+                                    //Card Item
+                                    <div key={product.id}
+                                        className="bg-white"
+                                    >
+                                        <Link to={`/products/${product.id}`}>
+                                            <img src={product.image} />
+                                            <p>{product.title}</p>
+                                            <p>{product.price}</p>
+                                            <p>{product.description}</p>
+                                        </Link> 
+                                    </div>    
+                                )            
+                            })} 
+                        </div>
+                   </section>
                 </>
             }
             {!isLoading && !products &&
