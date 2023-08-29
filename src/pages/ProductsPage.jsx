@@ -19,22 +19,29 @@ const ProductsPage = () => {
             {isSuccess && products &&
                 <>
                     {/*Product Card List Section/Container*/}
-                    <section className="bg-pink-100 py-10 px-12">
+                    <section className="bg-pink-100 py-10">
 
                         {/*Grid */}
-                      <div className="container m-auto grid gap-8 text-neutral-600 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                      <div className="container m-auto grid gap-8 text-neutral-600 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                        
                             {products.map((product) => {
                                 return (   
+
                                     //Card Item
                                     <div key={product.id}
-                                        className="bg-white"
+                                        className="bg-slate-100 rounded-md overflow-hidden p-5"
                                     >
                                         <Link to={`/products/${product.id}`}>
-                                            <img src={product.image} />
-                                            <p>{product.title}</p>
-                                            <p>{product.price}</p>
-                                            <p>{product.description}</p>
+                                            <img 
+                                                src={product.image} 
+                                                alt="Product image"
+                                                className="h-96 w-full object-fit"
+                                            />
+                                            <div>
+                                                <span className="font-semibold block mt-6 mb-4">{product.title}</span>
+                                                <span className="font-lightbold">{product.price}</span>  
+                                                <span>{product.description}</span>  
+                                            </div>
                                         </Link> 
                                     </div>    
                                 )            
