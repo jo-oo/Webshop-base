@@ -10,7 +10,7 @@ const NavBar = () => {
     const [dropDown, setDropDown] = useState(false);
 
     return (
-        <div className="sticky top-0 left-0 right-0">
+        <div className="fixed top-0 left-0 right-0 z-40">
             <nav className="w-full bg-slate-200">
                 <div className="justify-between px-4 mx-auto xl:max-w-screen-xl md:items-center md:flex md:px-8">
                     <div>
